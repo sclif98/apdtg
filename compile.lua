@@ -31,7 +31,7 @@ function parseCode(main)
             local words = mysplit(line, " ")
             local filenameToImport = words[2]
 
-            local importFile = assert(io.open(filenameToImport, "r"))
+            local importFile = assert(io.open("src/" .. filenameToImport, "r"))
             local importFileContents = importFile:read("*all")
             importFile.close()
 
@@ -44,17 +44,17 @@ function parseCode(main)
 end
 
 -- load the header
-local cartHeaderFile = assert(io.open("cartHeader.txt", "r"))
+local cartHeaderFile = assert(io.open("assets/cartHeader.txt", "r"))
 local cartHeader = cartHeaderFile:read("*all")
 cartHeaderFile.close()
 
 -- load the footer
-local cartFooterFile = assert(io.open("assets.txt", "r"))
+local cartFooterFile = assert(io.open("assets/assets.txt", "r"))
 local cartFooter = cartFooterFile:read("*all")
 cartFooterFile.close()
 
 -- load the main source file
-local mainSourceCodeFile = assert(io.open("main.lua", "r"))
+local mainSourceCodeFile = assert(io.open("src/main.lua", "r"))
 local mainSourceCode = mainSourceCodeFile:read("*all")
 mainSourceCodeFile.close()
 
